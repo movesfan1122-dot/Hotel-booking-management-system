@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Harbourview Hotel – Booking Desk</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Figtree:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div><span class="mark" aria-hidden="true">H</span>
+      <div>
+        <h1>Harbourview Hotel</h1>
+        <p id="today">Booking desk</p>
+      </div>
+    </div>
+    <nav role="tablist" aria-label="Sections">
+      <button role="tab" data-v="timeline" aria-selected="true">Availability</button>
+      <button role="tab" data-v="bookings" aria-selected="false">Bookings</button>
+      <button role="tab" data-v="rooms" aria-selected="false">Rooms</button>
+    </nav>
+  </header>
+  <main>
+    <section class="stats" id="stats" aria-label="Today at a glance"></section>
+    <div id="view"></div>
+  </main>
+
+  <dialog id="bk">
+    <h3 id="bk-title">New booking</h3>
+    <div class="f">
+      <label class="w">Guest name<input id="b-guest" autocomplete="off"></label>
+      <label>Phone<input id="b-phone" inputmode="tel"></label>
+      <label>Guests<input id="b-n" type="number" min="1" value="1"></label>
+      <label class="w">Room<select id="b-room"></select></label>
+      <label>Check-in<input id="b-in" type="date"></label>
+      <label>Check-out<input id="b-out" type="date"></label>
+    </div>
+    <p class="sum" id="b-sum"></p>
+    <p class="msg" id="b-msg" role="alert"></p>
+    <div class="dlg-act"><button class="btn" id="b-cancel">Close</button><button class="btn primary" id="b-save">Save
+        booking</button></div>
+  </dialog>
+
+  <dialog id="rm">
+    <h3 id="rm-title">Add room</h3>
+    <div class="f">
+      <label>Room number<input id="r-num"></label>
+      <label>Type<select id="r-type">
+          <option>Standard</option>
+          <option>Deluxe</option>
+          <option>Suite</option>
+          <option>Family</option>
+        </select></label>
+      <label>Rate per night (₹)<input id="r-rate" type="number" min="0"></label>
+      <label>Sleeps<input id="r-cap" type="number" min="1"></label>
+    </div>
+    <p class="msg" id="r-msg" role="alert"></p>
+    <div class="dlg-act"><button class="btn" id="r-cancel">Close</button><button class="btn primary" id="r-save">Save
+        room</button></div>
+  </dialog>
+  <div id="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
